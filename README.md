@@ -9,8 +9,10 @@ import sympy as sp
 
 x, y = sp.symbols('x, y')
 
-system = System({ x, y }, [ x*y - 1 ], [ x - 3 ])
-system.compute_class()
+system = System([ x*y - 1 ], [ x - 3 ], { x, y })
+
+solver = Solver()
+solver.compute_class(system)
 ```
 
 The output will be `q - 2`, as expected.
